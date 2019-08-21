@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.numLineas = new System.Windows.Forms.PictureBox();
-            this.TxtCodigo = new System.Windows.Forms.TextBox();
+            this.TxtCodigo = new System.Windows.Forms.RichTextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numLineas)).BeginInit();
             this.SuspendLayout();
@@ -40,7 +40,7 @@
             this.numLineas.Location = new System.Drawing.Point(3, 3);
             this.numLineas.Margin = new System.Windows.Forms.Padding(1);
             this.numLineas.Name = "numLineas";
-            this.numLineas.Size = new System.Drawing.Size(27, 566);
+            this.numLineas.Size = new System.Drawing.Size(27, 485);
             this.numLineas.TabIndex = 3;
             this.numLineas.TabStop = false;
             this.numLineas.Paint += new System.Windows.Forms.PaintEventHandler(this.NumLineas_Paint);
@@ -50,11 +50,11 @@
             this.TxtCodigo.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCodigo.Location = new System.Drawing.Point(30, 3);
             this.TxtCodigo.Margin = new System.Windows.Forms.Padding(10);
-            this.TxtCodigo.Multiline = true;
             this.TxtCodigo.Name = "TxtCodigo";
-            this.TxtCodigo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TxtCodigo.Size = new System.Drawing.Size(420, 565);
+            this.TxtCodigo.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.TxtCodigo.Size = new System.Drawing.Size(420, 485);
             this.TxtCodigo.TabIndex = 2;
+            this.TxtCodigo.Text = "";
             // 
             // timer1
             // 
@@ -72,17 +72,16 @@
             this.Load += new System.EventHandler(this.TextEditorTabPage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numLineas)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.PictureBox numLineas;
-        private System.Windows.Forms.TextBox TxtCodigo;
+        private System.Windows.Forms.RichTextBox TxtCodigo;
         private System.Windows.Forms.Timer timer1;
 
-        public System.Windows.Forms.TextBox TextCodigo
+        public System.Windows.Forms.RichTextBox TextCodigo
         {
             get{ return TxtCodigo; }
         }

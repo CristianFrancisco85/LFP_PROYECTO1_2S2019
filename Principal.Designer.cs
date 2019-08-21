@@ -40,27 +40,28 @@
             this.manualDeAplicacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.TabControl = new System.Windows.Forms.TabControl();
             this.CloseBtn = new System.Windows.Forms.PictureBox();
+            this.TabControl = new System.Windows.Forms.TabControl();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.numLineas = new System.Windows.Forms.PictureBox();
+            this.TxtCodigo = new System.Windows.Forms.RichTextBox();
             this.diagramaBox = new System.Windows.Forms.GroupBox();
             this.paisLbl = new System.Windows.Forms.Label();
             this.banderaImage = new System.Windows.Forms.PictureBox();
             this.poblacionLbl = new System.Windows.Forms.Label();
             this.BtnAnalizar = new System.Windows.Forms.Button();
             this.BtnPdf = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.numLineas = new System.Windows.Forms.PictureBox();
-            this.TxtCodigo = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.saveFileDialog2 = new System.Windows.Forms.SaveFileDialog();
             this.MenuTop.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.TabControl.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.banderaImage)).BeginInit();
+            this.TabControl.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numLineas)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.banderaImage)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuTop
@@ -149,15 +150,6 @@
             this.panel2.Size = new System.Drawing.Size(700, 30);
             this.panel2.TabIndex = 4;
             // 
-            // TabControl
-            // 
-            this.TabControl.Controls.Add(this.tabPage2);
-            this.TabControl.Location = new System.Drawing.Point(30, 60);
-            this.TabControl.Name = "TabControl";
-            this.TabControl.SelectedIndex = 0;
-            this.TabControl.Size = new System.Drawing.Size(470, 600);
-            this.TabControl.TabIndex = 5;
-            // 
             // CloseBtn
             // 
             this.CloseBtn.Image = ((System.Drawing.Image)(resources.GetObject("CloseBtn.Image")));
@@ -169,6 +161,48 @@
             this.CloseBtn.TabIndex = 0;
             this.CloseBtn.TabStop = false;
             this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
+            // 
+            // TabControl
+            // 
+            this.TabControl.Controls.Add(this.tabPage2);
+            this.TabControl.Location = new System.Drawing.Point(30, 60);
+            this.TabControl.Name = "TabControl";
+            this.TabControl.SelectedIndex = 0;
+            this.TabControl.Size = new System.Drawing.Size(470, 600);
+            this.TabControl.TabIndex = 5;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.numLineas);
+            this.tabPage2.Controls.Add(this.TxtCodigo);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(462, 572);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Pestaña 1";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // numLineas
+            // 
+            this.numLineas.Dock = System.Windows.Forms.DockStyle.Left;
+            this.numLineas.Location = new System.Drawing.Point(3, 3);
+            this.numLineas.Margin = new System.Windows.Forms.Padding(1);
+            this.numLineas.Name = "numLineas";
+            this.numLineas.Size = new System.Drawing.Size(27, 566);
+            this.numLineas.TabIndex = 1;
+            this.numLineas.TabStop = false;
+            this.numLineas.Paint += new System.Windows.Forms.PaintEventHandler(this.NumLineas_Paint);
+            // 
+            // TxtCodigo
+            // 
+            this.TxtCodigo.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCodigo.Location = new System.Drawing.Point(30, 3);
+            this.TxtCodigo.Name = "TxtCodigo";
+            this.TxtCodigo.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
+            this.TxtCodigo.Size = new System.Drawing.Size(420, 565);
+            this.TxtCodigo.TabIndex = 0;
+            this.TxtCodigo.Text = "";
             // 
             // diagramaBox
             // 
@@ -221,6 +255,7 @@
             this.BtnAnalizar.TabIndex = 10;
             this.BtnAnalizar.Text = "ANALIZAR";
             this.BtnAnalizar.UseVisualStyleBackColor = true;
+            this.BtnAnalizar.Click += new System.EventHandler(this.BtnAnalizar_Click);
             // 
             // BtnPdf
             // 
@@ -236,39 +271,6 @@
             this.BtnPdf.Text = "GENERAR PDF";
             this.BtnPdf.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.numLineas);
-            this.tabPage2.Controls.Add(this.TxtCodigo);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(462, 572);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Pestaña 1";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // numLineas
-            // 
-            this.numLineas.Dock = System.Windows.Forms.DockStyle.Left;
-            this.numLineas.Location = new System.Drawing.Point(3, 3);
-            this.numLineas.Margin = new System.Windows.Forms.Padding(1);
-            this.numLineas.Name = "numLineas";
-            this.numLineas.Size = new System.Drawing.Size(27, 566);
-            this.numLineas.TabIndex = 1;
-            this.numLineas.TabStop = false;
-            this.numLineas.Paint += new System.Windows.Forms.PaintEventHandler(this.NumLineas_Paint);
-            // 
-            // TxtCodigo
-            // 
-            this.TxtCodigo.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtCodigo.Location = new System.Drawing.Point(30, 3);
-            this.TxtCodigo.Multiline = true;
-            this.TxtCodigo.Name = "TxtCodigo";
-            this.TxtCodigo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.TxtCodigo.Size = new System.Drawing.Size(420, 565);
-            this.TxtCodigo.TabIndex = 0;
-            // 
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
@@ -276,6 +278,10 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // saveFileDialog2
+            // 
+            this.saveFileDialog2.Filter = "Archivo HTML|*.html";
             // 
             // Principal
             // 
@@ -300,12 +306,11 @@
             this.MenuTop.ResumeLayout(false);
             this.MenuTop.PerformLayout();
             this.panel2.ResumeLayout(false);
-            this.TabControl.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.banderaImage)).EndInit();
+            this.TabControl.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numLineas)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.banderaImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,10 +338,11 @@
         private System.Windows.Forms.Button BtnPdf;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.PictureBox numLineas;
-        private System.Windows.Forms.TextBox TxtCodigo;
+        private System.Windows.Forms.RichTextBox TxtCodigo;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog2;
     }
 }
 

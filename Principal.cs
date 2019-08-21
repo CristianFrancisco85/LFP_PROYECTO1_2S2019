@@ -1,5 +1,6 @@
 ﻿using Practica1LF_AnalizadorLexico;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,8 +16,9 @@ namespace Proyecto1LF_AnalizadorLexico
     public partial class Principal : Form
     {
 
-        String RutaA,RutaG; //RUTAS DE APERTURA Y ESCRITURA
+        String RutaA, RutaG; //RUTAS DE APERTURA Y ESCRITURA
         Boolean Guardar;  // INDICA SI ABRIO DESDE UN ARCHIVO
+        AnalizadorLexico Scanner = new AnalizadorLexico();
 
         public Principal()
         {
@@ -101,15 +103,22 @@ namespace Proyecto1LF_AnalizadorLexico
             MessageBox.Show("Cristian Francisco Meoño Canel - 201801397", "Acerca de", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-
-
+        private void BtnAnalizar_Click(object sender, EventArgs e)
+        {
+            Scanner = new AnalizadorLexico();
+            Scanner.Analysis(ActualTxtCodigo);
+            Scanner.PaintText(ActualTxtCodigo);
+            Scanner.GenerateHTML();
+            Program.TablaS = new ArrayList();
+            Program.TablaE = new ArrayList();
+        }
 
         //AUX METHODS
-        private TextBox ActualTxtCodigo
+        private RichTextBox ActualTxtCodigo
         {
             get
             {
-                TextBox aux = new TextBox();
+                RichTextBox aux = new RichTextBox();
 
                 if (TabControl.SelectedIndex == 0)
                 {
@@ -127,4 +136,5 @@ namespace Proyecto1LF_AnalizadorLexico
         }
 
     }
+
 }
