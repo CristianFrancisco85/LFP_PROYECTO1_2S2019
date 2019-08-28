@@ -17,7 +17,7 @@ namespace Proyecto1LF_AnalizadorLexico
         String[] Otros = new String[3] { ":" ,"%",";"};
         String[] auxVectorS = new String[5]; //Para Tokens
         String[] auxVectorE = new String[5]; //Para Errores Lexicos
-        Boolean Errores,Cadena;
+        public Boolean Errores,Cadena;
 
         public AnalizadorLexico()
         {
@@ -91,7 +91,7 @@ namespace Proyecto1LF_AnalizadorLexico
                             //SE ESTABLECE EL TIPO DE TOKEN
                             switch (Verificador(Reservadas, auxVectorS[1]))
                             {
-                                case -1:auxVectorS[2]="Cadena"; break;
+                                case -1:auxVectorS[2]=  "Cadena"; break;
                                 case 0: auxVectorS[2] = "Reservada Grafica"; break;
                                 case 1: auxVectorS[2] = "Reservada Continente"; break;
                                 case 2: auxVectorS[2] = "Reservada Pais"; break;
@@ -168,7 +168,9 @@ namespace Proyecto1LF_AnalizadorLexico
         public void GenerateHTML()
         {
             SaveFileDialog saveFile = new SaveFileDialog();
-
+            saveFile.Filter = "Archivo HTML (*.html)|*.html";
+            saveFile.DefaultExt = "html";
+            saveFile.AddExtension = true;
             if (!Errores)
             {
                 saveFile.Title = "Guardar Tabla de Simbolos";
@@ -253,45 +255,49 @@ namespace Proyecto1LF_AnalizadorLexico
 
         public void PaintText(RichTextBox Code)
         {
-            int tabs = 0;
-            Code.Clear();
-            foreach (String[] Vector in Program.TablaS)
+            if (!Errores)
             {
-                if (Vector[2].Contains("Reservada"))
+                int tabs = 0;
+                Code.Clear();
+                foreach (String[] Vector in Program.TablaS)
                 {
-                    Code.AppendText(Tabulador(tabs)+Vector[1],Color.RoyalBlue);
+                    if (Vector[2].Contains("Reservada"))
+                    {
+                        Code.AppendText(Tabulador(tabs) + Vector[1], Color.DodgerBlue);
+                    }
+                    else if (Vector[2].Contains("Numero"))
+                    {
+                        Code.AppendText(Vector[1], Color.Green);
+                    }
+                    else if (Vector[2].Contains("Cadena"))
+                    {
+                        Code.AppendText(Vector[1], Color.Goldenrod);
+                    }
+                    else if (Vector[2].Contains("Abre Llave"))
+                    {
+                        Code.AppendText(Vector[1] + "\n", Color.Red);
+                        tabs++;
+                    }
+                    else if (Vector[2].Contains("Cierra Llave"))
+                    {
+                        Code.AppendText(Tabulador(tabs) + Vector[1] + "\n", Color.Red);
+                        tabs--;
+                    }
+                    else if (Vector[2].Contains("Punto y Coma"))
+                    {
+                        Code.AppendText(Vector[1] + "\n", Color.DarkOrange);
+                    }
+                    else
+                    {
+                        Code.AppendText(Vector[1], Color.Black);
+                    }
                 }
-                else if(Vector[2].Contains("Numero"))
-                {
-                    Code.AppendText(Vector[1], Color.Green);
-                }
-                else if (Vector[2].Contains("Cadena"))
-                {
-                    Code.AppendText(Vector[1], Color.Goldenrod);
-                }
-                else if (Vector[2].Contains("Abre Llave"))
-                {
-                    Code.AppendText(Vector[1] + "\n", Color.Red);
-                    tabs++;
-                }
-                else if (Vector[2].Contains("Cierra Llave"))
-                {
-                    Code.AppendText(Tabulador(tabs) + Vector[1] + "\n", Color.Red);
-                    tabs--;
-                }
-                else if (Vector[2].Contains("Punto y Coma"))
-                {
-                    Code.AppendText(Vector[1]+"\n", Color.DarkOrange);
-                }
-                else
-                {
-                    Code.AppendText(Vector[1], Color.Black);
-                }
+
             }
         }
 
         //Verfica si MyString existe en MyArray y regresara el indice si no regresara -1
-        public int Verificador(String[] MyArray, String MyString )
+        private int Verificador(String[] MyArray, String MyString )
         {
             int contador = 0;
             foreach (String Cadena in MyArray)
@@ -306,7 +312,7 @@ namespace Proyecto1LF_AnalizadorLexico
         }
 
         //Me regresa una string con n tabulaciones
-        public String Tabulador(int n)
+        private String Tabulador(int n)
         {
             String aux="";
             for (int i=0;i<n;i++)

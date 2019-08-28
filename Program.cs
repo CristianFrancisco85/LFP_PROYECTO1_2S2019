@@ -15,6 +15,7 @@ namespace Proyecto1LF_AnalizadorLexico
         /// 
         public static ArrayList TablaS = new ArrayList(); //Tabla de Simbolos
         public static ArrayList TablaE = new ArrayList(); //Errores Lexicos
+        public static ArrayList TablaI = new ArrayList(); //Informacion para Grafica
 
         [STAThread]
         static void Main()

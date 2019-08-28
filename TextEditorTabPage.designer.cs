@@ -47,6 +47,8 @@
             // 
             // TxtCodigo
             // 
+            this.TxtCodigo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(225)))));
+            this.TxtCodigo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtCodigo.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtCodigo.Location = new System.Drawing.Point(30, 3);
             this.TxtCodigo.Margin = new System.Windows.Forms.Padding(10);

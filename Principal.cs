@@ -19,6 +19,7 @@ namespace Proyecto1LF_AnalizadorLexico
         String RutaA, RutaG; //RUTAS DE APERTURA Y ESCRITURA
         Boolean Guardar;  // INDICA SI ABRIO DESDE UN ARCHIVO
         AnalizadorLexico Scanner = new AnalizadorLexico();
+        AnalizadorSintactico Parser = new AnalizadorSintactico();
 
         public Principal()
         {
@@ -107,10 +108,21 @@ namespace Proyecto1LF_AnalizadorLexico
         {
             Scanner = new AnalizadorLexico();
             Scanner.Analysis(ActualTxtCodigo);
-            Scanner.PaintText(ActualTxtCodigo);
             Scanner.GenerateHTML();
+            Scanner.PaintText(ActualTxtCodigo);
+            if (!Scanner.Errores)
+            {
+                Parser = new AnalizadorSintactico();
+                Parser.Parsing();
+                Parser.GenerateGraph();
+                GraphBox.Image= Image.FromFile(AnalizadorSintactico.RutaImg);
+                paisLbl.Text = "Pais Seleccionado: " + AnalizadorSintactico.Pais[1];
+                poblacionLbl.Text = "Poblacion: " + AnalizadorSintactico.Pais[2];
+            }
             Program.TablaS = new ArrayList();
             Program.TablaE = new ArrayList();
+            Program.TablaI = new ArrayList();
+
         }
 
         //AUX METHODS

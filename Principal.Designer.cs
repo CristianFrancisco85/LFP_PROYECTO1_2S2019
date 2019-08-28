@@ -55,13 +55,16 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.saveFileDialog2 = new System.Windows.Forms.SaveFileDialog();
+            this.GraphBox = new System.Windows.Forms.PictureBox();
             this.MenuTop.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).BeginInit();
             this.TabControl.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numLineas)).BeginInit();
+            this.diagramaBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.banderaImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GraphBox)).BeginInit();
             this.SuspendLayout();
             // 
             // MenuTop
@@ -165,6 +168,7 @@
             // TabControl
             // 
             this.TabControl.Controls.Add(this.tabPage2);
+            this.TabControl.ImeMode = System.Windows.Forms.ImeMode.Off;
             this.TabControl.Location = new System.Drawing.Point(30, 60);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
@@ -173,6 +177,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.BackColor = System.Drawing.Color.White;
             this.tabPage2.Controls.Add(this.numLineas);
             this.tabPage2.Controls.Add(this.TxtCodigo);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
@@ -181,10 +186,10 @@
             this.tabPage2.Size = new System.Drawing.Size(462, 572);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Pestaña 1";
-            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // numLineas
             // 
+            this.numLineas.BackColor = System.Drawing.Color.White;
             this.numLineas.Dock = System.Windows.Forms.DockStyle.Left;
             this.numLineas.Location = new System.Drawing.Point(3, 3);
             this.numLineas.Margin = new System.Windows.Forms.Padding(1);
@@ -196,7 +201,10 @@
             // 
             // TxtCodigo
             // 
+            this.TxtCodigo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(221)))), ((int)(((byte)(225)))));
+            this.TxtCodigo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtCodigo.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TxtCodigo.ForeColor = System.Drawing.Color.Black;
             this.TxtCodigo.Location = new System.Drawing.Point(30, 3);
             this.TxtCodigo.Name = "TxtCodigo";
             this.TxtCodigo.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.Vertical;
@@ -206,10 +214,12 @@
             // 
             // diagramaBox
             // 
+            this.diagramaBox.Controls.Add(this.GraphBox);
             this.diagramaBox.Font = new System.Drawing.Font("Segoe UI Emoji", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.diagramaBox.ForeColor = System.Drawing.Color.Black;
             this.diagramaBox.Location = new System.Drawing.Point(540, 60);
             this.diagramaBox.Name = "diagramaBox";
-            this.diagramaBox.Size = new System.Drawing.Size(625, 300);
+            this.diagramaBox.Size = new System.Drawing.Size(625, 317);
             this.diagramaBox.TabIndex = 6;
             this.diagramaBox.TabStop = false;
             this.diagramaBox.Text = "Diagrama";
@@ -283,10 +293,20 @@
             // 
             this.saveFileDialog2.Filter = "Archivo HTML|*.html";
             // 
+            // GraphBox
+            // 
+            this.GraphBox.Location = new System.Drawing.Point(12, 24);
+            this.GraphBox.Name = "GraphBox";
+            this.GraphBox.Size = new System.Drawing.Size(600, 280);
+            this.GraphBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.GraphBox.TabIndex = 0;
+            this.GraphBox.TabStop = false;
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(246)))), ((int)(((byte)(250)))));
             this.ClientSize = new System.Drawing.Size(1200, 700);
             this.Controls.Add(this.BtnPdf);
             this.Controls.Add(this.BtnAnalizar);
@@ -298,6 +318,7 @@
             this.Controls.Add(this.MenuTop);
             this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Segoe UI Emoji", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -310,7 +331,9 @@
             this.TabControl.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numLineas)).EndInit();
+            this.diagramaBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.banderaImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GraphBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -343,6 +366,7 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog2;
+        private System.Windows.Forms.PictureBox GraphBox;
     }
 }
 
